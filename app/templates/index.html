@@ -1,0 +1,30 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Blockbuster{% endblock %}
+
+{% block navbar %}
+<h1>Box office predictions</h1>
+{% endblock %}
+
+
+{% block content %}
+
+<div class='container'>
+    <p>Pitch a movie idea to us and we will predict it's revenue.</p>
+</div>
+
+<div class='container'>
+    {{ wtf.quick_form(form) }}
+</div>
+
+<div class='container'>
+
+    <h3>{% if session.get('pred') %} This movies revenue is predicted to be {{session.get('pred')['pred']}} dollars.</h3>
+
+
+{% else %} {% endif %}
+
+</div>
+
+{% endblock %}
